@@ -19,7 +19,7 @@ st.write(f"""
 ### 過去 **{days}日間** のGAFA株価                 
 """)
 
-@st.cache
+@st.cache  #キャッシュを使う事でリロードする時に読み込みを早くする事ができる
 def get_data(days, tickers):
     df = pd.DataFrame()  #二次元の表形式のデータで、列名はColumns、行名はindex
     for company in tickers.keys():
@@ -55,8 +55,8 @@ tickers = {
 df = get_data(days, tickers)
 companies = st.multiselect(
     '会社名を選択してください',
-    list(df.index),
-    ['google', 'amazon', 'facebook', 'apple']
+    list(df.index),   #listには、df.indexに載っている企業名がそれぞれ格納されている
+    ['google', 'amazon', 'facebook', 'apple']    #初期設定として、GAFAだけを表示させておく
 )
 
 if not companies:
