@@ -48,7 +48,8 @@ tickers = {
     'google': 'GOOGL',
     'microsoft': 'MSFT',
     'netflix': 'NFLX',
-    'amazon': 'AMZN'     
+    'amazon': 'AMZN',
+    'ibm': 'IBM'     
 }
 
 df = get_data(days, tickers)
